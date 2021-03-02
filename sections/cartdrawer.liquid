@@ -1,0 +1,38 @@
+<div class="slider-area">
+  <h4>See What Your Peers are Saying:</h4>
+  </div>
+<div class="sliderwrap">
+  <div dir="ltr" class="single-item-rtl">
+    {% for block in section.blocks %}
+    <div>{{ block.settings.slidercontent}}</div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Cart Slider",
+	"class": "drawer-menu-section",
+    "max_blocks": 3,
+    "settings": [],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "slidercontent",
+            "label": "Slider Content"
+		  }
+		]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

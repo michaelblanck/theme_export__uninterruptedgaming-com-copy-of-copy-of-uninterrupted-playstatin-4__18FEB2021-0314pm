@@ -1,0 +1,17 @@
+<div class="review-badge">
+<!-- Start Areviews Collection Rating Code -->
+{% if badge_template == 'product' %} 
+{% if template == 'product' %} <div class='areviews_header_stars'></div> {% elsif template == 'index' %} <div class='areviews_product_item areviews_stars{{ product.id }}'  data-product-id='{{ product.id }}'></div> {% endif %} 
+{% elsif badge_template == 'grid' %}
+<div class='areviews_product_item areviews_stars{{ product.id }}'  data-product-id='{{ product.id }}'></div>
+{% endif %}
+<!-- End Areviews Collection Rating Code -->
+
+  {% if badge_template == "product" %}
+    <!-- INSERT [PRODUCT PAGE] REVIEW BADGE HERE -->
+    
+  {% elsif badge_template == "grid" %}
+    <!-- INSERT [PRODUCT GRID] REVIEW BADGE HERE -->
+    
+  {% endif %}
+</div>

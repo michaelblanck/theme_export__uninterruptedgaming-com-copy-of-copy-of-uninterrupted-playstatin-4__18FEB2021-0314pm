@@ -1,0 +1,77 @@
+ <div class="{{ section.settings.section_style }}" data-section-id="{{ section.id }}" data-section-type="product-grid-section">
+      <div class="wrapper" style = "margin-bottom: 15px; ">
+			<div class="section-header">
+              <h2 class="section-header__title">{{ section.settings.title | escape }}</h2>
+              <p class="section-header__subtitle">{{ section.settings.subtitle | escape }}</p>
+            </div>
+        <div class = "grid text-center">
+          {% form 'contact' %}
+
+              {% if form.posted_successfully? %}
+                <p class="success-msg">Thanks for contacting us! We'll get back to you as soon as possible.</p>
+              {% endif %}
+
+              {% if form.errors %}
+              <p class="error-msg">
+                <ul class="error-list" style="color:#E0360F">
+                {% for field in form.errors %}
+                  {% if field == 'body' %}
+                  <li>Your message cannot be blank.</li>
+                  {% endif %}       
+                {% endfor %}
+                </ul>
+              </p>
+              {% endif %}
+
+              <div id="contact-form">
+
+                <div class="clearfix type-textarea{% if form.errors contains 'body' %} has-error{% endif %}">
+                  <textarea id="message" placeholder = "Message"  name="contact[body]"></textarea>  
+                   <input type="submit" class="submit btn my_bt" value="Send" />
+                </div>
+                
+              </div>
+            {% endform %}
+   </div>
+   <br/>
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Contact Form",
+	"class": "related-product-section",
+    "settings": [
+	 {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+		"default": "Contact Us"
+	},
+	 {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Section subheading",
+		"default": "Please give us your advice on how we can improve our company"
+	}
+	],
+	"presets": [
+      {
+        "name": "Contact Form",
+        "category": "Custom Sections"
+
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+.my_bt { 
+	margin-top: 20px;
+	margin-left: 20px;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
